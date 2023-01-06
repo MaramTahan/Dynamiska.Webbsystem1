@@ -1,26 +1,25 @@
-
 using Microsoft.EntityFrameworkCore;
 using WestCoastEducation2.web.Models;
 namespace WestCoastEducation2.web.Data;
-[Keyless]
     public class westcoasteducationContext: DbContext
     {
-protected override void OnModelCreating(ModelBuilder modelBuilder)
-{
-    modelBuilder
-        .Entity<Courses>(
-            eb =>
-            {
-                eb.HasNoKey();
-                eb.ToView("View_Courses");
-                
-            });
-}
- public DbSet<Courses> coursesData => Set<Courses>();
+      public DbSet<Courses> GetcoursesData()
+      {
+      return Set<Courses>();
+      }
+      public DbSet<Student> GetStudentData()
+      {
+      return Set<Student>();
+      }
 
- public westcoasteducationContext(DbContextOptions options) : base(options)
- {
- }
+      public DbSet<Teacher> GetTeacherData()
+      {
+      return Set<Teacher>();
+      }
+
+      public westcoasteducationContext(DbContextOptions options) : base(options)
+      {
+      }
  
     }
     

@@ -5,44 +5,43 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WestCoastEducation2.web.Data;
 
-
-
 #nullable disable
 
 namespace WestCoastEducation2.web.Data.Migrations
 {
     [DbContext(typeof(westcoasteducationContext))]
-    [Migration("20230105132112_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230106194131_StudentCreate")]
+    partial class StudentCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
-modelBuilder.Entity("WestCoastEducation2.web.Models.Courses", b => 
-{
-    b.Property<string>("name")
+            modelBuilder.Entity("WestCoastEducation2.web.Models.Student", b =>{
+        b.Property<string>("firstName")
         .IsRequired()
         .HasColumnType("TEXT");
-    b.Property<string>("courseNumber")
+        b.Property<string>("lastName")
         .IsRequired()
         .HasColumnType("TEXT");
-        b.Property<string>("teacher")
+        b.Property<string>("phoneNumber")
         .IsRequired()
         .HasColumnType("TEXT");
-        b.Property<string>("placeStudy")
+        b.Property<string>("emailAddress")
         .IsRequired()
         .HasColumnType("TEXT");
-        b.Property<DateTime >("startDate")
+        b.Property<string>("address")
         .IsRequired()
-        .HasColumnType("Date");
-        b.Property<DateTime >("endDate")
-        .IsRequired()
-        .HasColumnType("Date");
-        b.ToTable("Courses");
-        
-});
+        .HasColumnType("Text");
+        b.ToTable("Student");
+            }
+            );
+
+
+
+
+
 #pragma warning restore 612, 618
         }
     }
