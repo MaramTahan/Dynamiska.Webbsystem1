@@ -24,6 +24,8 @@ namespace WestCoastEducation2.web.Data.Migrations
                     "Text", nullable: false),
                     address = table.Column<string>(type: 
                     "text", nullable: false),
+                    coursesTaught = table.Column<string>(type: 
+                    "Text", nullable: false),
                 },
                 constraints: table =>
                 {

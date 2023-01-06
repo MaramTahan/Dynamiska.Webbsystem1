@@ -34,6 +34,9 @@ namespace WestCoastEducation2.web.Data.Migrations
         b.Property<string>("address")
         .IsRequired()
         .HasColumnType("Text");
+        b.Property<string>("coursesTaught")
+        .IsRequired()
+        .HasColumnType("Text");
         b.ToTable("Teacher");
             }
             );
