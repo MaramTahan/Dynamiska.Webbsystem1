@@ -15,6 +15,70 @@ namespace WestCoastEducation2.web.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
+            modelBuilder.Entity("WestCoastEducation2.web.Models.Courses", b => 
+{
+    b.Property<string>("name")
+        .IsRequired()
+        .HasColumnType("TEXT");
+    b.Property<string>("courseNumber")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("teacher")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("placeStudy")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("startDate")
+        .IsRequired()
+        .HasColumnType("Text");
+        b.Property<string>("endDate")
+        .IsRequired()
+        .HasColumnType("Text");
+        b.ToTable("Courses1");
+});
+//------------------------------------------
+
+modelBuilder.Entity("WestCoastEducation2.web.Models.Student", b =>{
+        b.Property<string>("firstName")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("lastName")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("phoneNumber")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("emailAddress")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("address")
+        .IsRequired()
+        .HasColumnType("Text");
+        b.ToTable("Student");
+            });
+//------------------------------------------
+
+modelBuilder.Entity("WestCoastEducation2.web.Models.Teacher", b =>{
+        b.Property<string>("firstName")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("lastName")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("phoneNumber")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("emailAddress")
+        .IsRequired()
+        .HasColumnType("TEXT");
+        b.Property<string>("address")
+        .IsRequired()
+        .HasColumnType("Text");
+        b.ToTable("Teacher");
+            });
+
+
 #pragma warning restore 612, 618
         }
     }
