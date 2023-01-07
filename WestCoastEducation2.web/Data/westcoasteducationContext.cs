@@ -3,6 +3,7 @@ using WestCoastEducation2.web.Models;
 namespace WestCoastEducation2.web.Data;
     public class westcoasteducationContext: DbContext
     {
+       
       public DbSet<Courses> GetcoursesData()
       {
       return Set<Courses>();
