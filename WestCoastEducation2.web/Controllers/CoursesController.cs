@@ -5,7 +5,7 @@ using WestCoastEducation2.web.Data;
 
 namespace WestCoastEducation2.web.Controllers
 {
-    [Route("Courses")]
+    
     public class CoursesController : Controller
     {
   private readonly westcoasteducationContext _context;

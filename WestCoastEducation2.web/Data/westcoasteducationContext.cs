@@ -1,7 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
 using WestCoastEducation2.web.Models;
-
 namespace WestCoastEducation2.web.Data;
 
     public class westcoasteducationContext: DbContext
