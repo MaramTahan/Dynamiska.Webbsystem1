@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using WestCoastEducation2.web.Data;
 using WestCoastEducation2.web.Models;
 
-namespace WestCoastEducation2.web.Controllers
-{
+namespace WestCoastEducation2.web.Controllers;
+
     [Route("[courses/admin]")]
     public class CoursesAdminController : Controller
     {
@@ -163,7 +163,6 @@ namespace WestCoastEducation2.web.Controllers
             return View("_Error", error);
         }
     }
-
+//--------------------------------------------------------------
 
     }
-}

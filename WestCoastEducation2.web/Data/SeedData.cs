@@ -59,12 +59,12 @@ namespace WestCoastEducation2.web.Data;
 
         var json = System.IO.File.ReadAllText("Data/json/Teacher.json");
         
-        var TeacherList = JsonSerializer.Deserialize<List<Teacher>> 
+        var teacherList = JsonSerializer.Deserialize<List<Teacher>> 
             (json, options);
 
-        if (TeacherList is not null && TeacherList.Count > 0)
+        if (teacherList is not null && teacherList.Count > 0)
         {
-            await context.teacherData.AddRangeAsync(TeacherList);
+            await context.teacherData.AddRangeAsync(teacherList);
             await context.SaveChangesAsync();
         }
     }
