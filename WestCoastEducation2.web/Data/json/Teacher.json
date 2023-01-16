@@ -1,5 +1,6 @@
 [
  {
+  "userId": 330,
   "firstName": "Michael ",
   "lastName": "Gustafsson",
   "phoneNumber": "0723550511",
@@ -10,6 +11,7 @@
 
 
  {
+  "userId": 340,
   "firstName": "Malin ",
   "lastName": "Trofast",
   "phoneNumber": "0370378024",

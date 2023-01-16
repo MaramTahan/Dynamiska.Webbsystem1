@@ -11,7 +11,7 @@ namespace WestCoastEducation2.web.Controllers
   private readonly westcoasteducationContext _context;
   public CoursesController(westcoasteducationContext context)
   {
-   this._context = context;
+   _context = context;
   }
 
   ////url: https://localhost:7140/Courses/index
@@ -35,7 +35,7 @@ namespace WestCoastEducation2.web.Controllers
 //-----------------------------------------------
   public async Task<IActionResult> Index()
         {
-            var courses = await _context.GetcoursesData().ToListAsync();
+            var courses = await _context.coursesData.ToListAsync();
             return View("Index", courses);
         }
 

@@ -11,17 +11,17 @@ namespace WestCoastEducation2.web.Data;
         };
 
 // Only want to load data if the database table is empty...
-        if (context.GetcoursesData().Any()) return;
+        if (context.coursesData.Any()) return;
 
         // Loading the json data...
-        var json = System.IO.File.ReadAllText("WestCoastEducation2.web/Data/json/Courses.json");
+        var json = System.IO.File.ReadAllText("Data/json/Courses.json");
 // Convert the json objects to a list of Vehicle objects...
         var coursesList = JsonSerializer.Deserialize<List<Courses>> 
             (json, options);
 
         if (coursesList is not null && coursesList.Count > 0)
         {
-            await context.GetcoursesData().AddRangeAsync(coursesList);
+            await context.coursesData.AddRangeAsync(coursesList);
             await context.SaveChangesAsync();
         }
     }
@@ -33,16 +33,16 @@ namespace WestCoastEducation2.web.Data;
             PropertyNameCaseInsensitive = true
         };
         
-        if (context.GetStudentData().Any()) return;
+        if (context.studentData.Any()) return;
 
-        var json = System.IO.File.ReadAllText("WestCoastEducation2.web/Data/json/Student.json");
+        var json = System.IO.File.ReadAllText("Data/json/Student.json");
         
         var studentList = JsonSerializer.Deserialize<List<Student>> 
             (json, options);
 
         if (studentList is not null && studentList.Count > 0)
         {
-            await context.GetStudentData().AddRangeAsync(studentList);
+            await context.studentData.AddRangeAsync(studentList);
             await context.SaveChangesAsync();
         }
     }
@@ -55,16 +55,16 @@ namespace WestCoastEducation2.web.Data;
             PropertyNameCaseInsensitive = true
         };
 
-        if (context.GetTeacherData().Any()) return;
+        if (context.teacherData.Any()) return;
 
-        var json = System.IO.File.ReadAllText("WestCoastEducation2.web/Data/json/Teacher.json");
+        var json = System.IO.File.ReadAllText("Data/json/Teacher.json");
         
         var TeacherList = JsonSerializer.Deserialize<List<Teacher>> 
             (json, options);
 
         if (TeacherList is not null && TeacherList.Count > 0)
         {
-            await context.GetTeacherData().AddRangeAsync(TeacherList);
+            await context.teacherData.AddRangeAsync(TeacherList);
             await context.SaveChangesAsync();
         }
     }

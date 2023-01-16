@@ -3,6 +3,7 @@ namespace WestCoastEducation2.web.Models
 {
 public class Courses
 {
+ public int Id { get; set; }
 public string name { get; set; } = "";
 public string courseNumber{ get; set; } = "";
 public string startDate { get; set; } = "";
