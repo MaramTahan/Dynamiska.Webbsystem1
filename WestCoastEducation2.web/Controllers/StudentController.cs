@@ -5,7 +5,7 @@ using WestCoastEducation2.web.Models;
 
 namespace WestCoastEducation2.web.Controllers;
 
-    [Route("[Student/admin]")]
+    [Route("[student/admin]")]
     public class StudentController : Controller
     {
   private readonly westcoasteducationContext _context;
@@ -15,11 +15,23 @@ namespace WestCoastEducation2.web.Controllers;
 
         public async Task <IActionResult> Index()
         {
-            var student = await _context.studentData.ToListAsync();
-            return View("Index", student);
+            try
+            {
+                var students = await _context.studentData.ToListAsync();
+            return View("Index", students);
+            }
+            catch (Exception ex)
+            {
+                var error = new ErrorModel{
+                    ErrorMessage = ex.Message
+                };
+                return View("_Error", error);
+                
+            }
+            
         }
 
-        [HttpGet("create")]
+        [HttpGet("CreateStudent")]
     public IActionResult Create()
     {
         var student = new Student();
@@ -27,7 +39,7 @@ namespace WestCoastEducation2.web.Controllers;
 
     }
 
-    [HttpPost("create")]
+    [HttpPost("CreateStudent")]
     public async Task<IActionResult> Create(Student student)
     {
         try
@@ -39,7 +51,7 @@ namespace WestCoastEducation2.web.Controllers;
             {
                 var error = new ErrorModel
                 {
-                    ErrorTitle = "Ett fel har inträffat när bilen skulle sparas!"
+                    ErrorTitle = "An error has occurred when saving the user!"
                 };
 
                 return View("_Error", error);
@@ -54,7 +66,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when saving the user!",
                 ErrorMessage = ex.Message
             };
 
@@ -63,7 +75,7 @@ namespace WestCoastEducation2.web.Controllers;
     }
     //--------------------------------------------------------------
 
-    [HttpGet("edit/{userId}")]
+    [HttpGet("EditStudent/{userId}")]
     public async Task<IActionResult> Edit(int userId)
     {
         try
@@ -74,7 +86,7 @@ namespace WestCoastEducation2.web.Controllers;
 
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle hämta en bil för redigering"
+                ErrorTitle = "An error occurred when we were about to pick up a user for editing"
             };
 
             return View("_Error", error);
@@ -83,7 +95,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi hämta bil för redigering",
+                ErrorTitle = "An error occurred when we were about to pick up a user for editing",
                 ErrorMessage = ex.Message
             };
 
@@ -91,7 +103,7 @@ namespace WestCoastEducation2.web.Controllers;
         }
     }
 
-    [HttpPost("edit/{userId}")]
+    [HttpPost("EditStudent/{userId}")]
     public async Task<IActionResult> Edit(int userId, Student student)
     {
         try
@@ -115,7 +127,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when we were trying to save the user",
                 ErrorMessage = ex.Message
             };
 
@@ -124,7 +136,7 @@ namespace WestCoastEducation2.web.Controllers;
     }
     //--------------------------------------------------------------
 
-    [Route("delete/{userId}")]
+    [Route("DeleteStudent/{userId}")]
     public async Task<IActionResult> Delete(int userId)
     {
         try
@@ -142,7 +154,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när bilen skulle raderas",
+                ErrorTitle = "An error has occurred when the user was to be deleted",
                 ErrorMessage = ex.Message
             };
 

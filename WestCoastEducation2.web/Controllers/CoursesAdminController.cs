@@ -24,7 +24,7 @@ namespace WestCoastEducation2.web.Controllers;
             {
                 var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle hämta alla bilar",
+                ErrorTitle = "An error has occurred when we were to pick up all the courses",
                 ErrorMessage = ex.Message
             };
 
@@ -53,7 +53,7 @@ namespace WestCoastEducation2.web.Controllers;
             {
                 var error = new ErrorModel
                 {
-                    ErrorTitle = "Ett fel har inträffat när bilen skulle sparas!"
+                    ErrorTitle = "An error has occurred when saving the course!"
                 };
 
                 return View("_Error", error);
@@ -68,7 +68,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when saving the course!",
                 ErrorMessage = ex.Message
             };
 
@@ -87,7 +87,7 @@ namespace WestCoastEducation2.web.Controllers;
 
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle hämta en bil för redigering"
+                ErrorTitle = "An error occurred when we were about to pick up a course for editing"
             };
 
             return View("_Error", error);
@@ -96,7 +96,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi hämta bil för redigering",
+                ErrorTitle = "An error occurred when we were about to pick up a course for editing",
                 ErrorMessage = ex.Message
             };
 
@@ -129,7 +129,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when we were trying to save the course",
                 ErrorMessage = ex.Message
             };
 
@@ -156,7 +156,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när bilen skulle raderas",
+                ErrorTitle = "An error has occurred when the course was to be deleted",
                 ErrorMessage = ex.Message
             };
 

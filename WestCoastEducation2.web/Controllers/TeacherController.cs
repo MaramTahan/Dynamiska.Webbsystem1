@@ -17,11 +17,23 @@ namespace WestCoastEducation2.web.Controllers;
 
         public async Task <IActionResult> Index()
         {
-           var teacher = await _context.teacherData.ToListAsync();
-            return View("Index", teacher);
+            try
+            {
+                var teachers = await _context.teacherData.ToListAsync();
+            return View("Index", teachers);
+            }
+            catch (Exception ex)
+            {
+                var error = new ErrorModel{
+                    ErrorMessage = ex.Message
+                };
+                return View("_Error", error);
+               
+            }
+           
         }
 
-        [HttpGet("create")]
+        [HttpGet("CreateTeacher")]
     public IActionResult Create()
     {
         var teacher = new Teacher();
@@ -29,7 +41,7 @@ namespace WestCoastEducation2.web.Controllers;
 
     }
 
-    [HttpPost("create")]
+    [HttpPost("CreateTeacher")]
     public async Task<IActionResult> Create(Teacher teacher)
     {
         try
@@ -41,7 +53,7 @@ namespace WestCoastEducation2.web.Controllers;
             {
                 var error = new ErrorModel
                 {
-                    ErrorTitle = "Ett fel har inträffat när bilen skulle sparas!"
+                    ErrorTitle = "An error has occurred when saving the user!"
                 };
 
                 return View("_Error", error);
@@ -56,7 +68,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when we were trying to save the user",
                 ErrorMessage = ex.Message
             };
 
@@ -65,7 +77,7 @@ namespace WestCoastEducation2.web.Controllers;
     }
     //--------------------------------------------------------------
 
-    [HttpGet("edit/{userId}")]
+    [HttpGet("EditTeacher/{userId}")]
     public async Task<IActionResult> Edit(int userId)
     {
         try
@@ -76,7 +88,7 @@ namespace WestCoastEducation2.web.Controllers;
 
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle hämta en bil för redigering"
+                ErrorTitle = "An error occurred when we were about to pick up a user for editing"
             };
 
             return View("_Error", error);
@@ -85,14 +97,14 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi hämta bil för redigering",
+                ErrorTitle = "An error occurred when we were about to pick up a user for editing",
                 ErrorMessage = ex.Message
             };
 
             return View("_Error", error);
         }
     }
-     [HttpPost("edit/{userId}")]
+     [HttpPost("EditTeacher/{userId}")]
     public async Task<IActionResult> Edit(int userId, Teacher teacher)
     {
         try
@@ -116,7 +128,7 @@ namespace WestCoastEducation2.web.Controllers;
         {
             var error = new ErrorModel
             {
-                ErrorTitle = "Ett fel har inträffat när vi skulle spara bilen",
+                ErrorTitle = "An error has occurred when saving the user!",
                 ErrorMessage = ex.Message
             };
 
@@ -125,7 +137,7 @@ namespace WestCoastEducation2.web.Controllers;
     }
     //--------------------------------------------------------------
 
-    [Route("delete/{userId}")]
+    [Route("DeleteTeacher/{userId}")]
     public async Task<IActionResult> Delete(int userId)
     {
         try
